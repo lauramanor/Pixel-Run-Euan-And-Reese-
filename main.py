@@ -4,6 +4,8 @@ WIDTH = 4000
 HEIGHT = 900
 BACKGROUND = (0,255,255)
 
+
+
 class Sprite(pygame.sprite.Sprite):
     def __init__(self, image, startx, starty):
         super().__init__()
@@ -54,12 +56,19 @@ class Player(Sprite):
         if self.facing_left:
             self.image = pygame.transform.flip(self.image, True, False)
 
+    def __init__(move_to_corner):
+      (startx, starty) = (700, 700)
+
     def update(self, box_group, coin_group):
         hsp = 0
         onground = self.check_collision(0, 1, box_group)
         inCoin = self.check_collision(0, 1, coin_group)
 
-        #if in coin, 
+        if inCoin:
+          for i in (coin_group):
+            Coin.move_to_corner
+          
+          
           #get specific coin object from the coin_group, 
           # then move that specific coin 
         
@@ -151,9 +160,12 @@ class Box(Sprite):
         super().__init__("boxAlt.png", startx, starty)
 
 class Coin(Sprite):
+    
     def __init__(self, startx, starty):
         super().__init__("p1_Coin.png", startx, starty)
 
+
+    
     def update():
       # move to corner and increase count by 1
       pass
